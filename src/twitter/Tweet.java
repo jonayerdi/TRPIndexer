@@ -10,6 +10,9 @@ import java.util.*;
  */
 public class Tweet {
 
+    public static final String[] TO_REMOVE_FROM_TERMS
+            = {".",":",",",";","?","!","&","'","\"","(",")"};
+
     protected Extractor extractor;
     protected Autolink autolink;
 
@@ -81,7 +84,8 @@ public class Tweet {
 
     public void splitTerms() {
         for(String term : processedText.split(" ")) {
-            term = term.replace(".","").replace(":","").replace(",","").replace(";","").replace("&","").replace("'","");
+            for(String remove : TO_REMOVE_FROM_TERMS)
+                term = term.replace(remove, "");
             term = term.toLowerCase();
             term = stemmer.stem(term);
             if(!term.isEmpty())
