@@ -21,8 +21,13 @@ public class TRPIndexer {
 
     public void start() {
         tweets = TweetReader.readTweets();
-        for(Tweet tweet : tweets)
-            tweet.process();
+        for(Tweet tweet : tweets) {
+            try {
+                tweet.process();
+            } catch(Exception e) {
+                System.out.println("Error reading tweet. Id = " + tweet.getId());
+            }
+        }
         TweetWritter.writeTweets(tweets);
     }
 

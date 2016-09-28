@@ -19,6 +19,7 @@ public class Tweet {
     protected PorterStemmer stemmer;
 
     protected Integer id;
+
     protected String text;
     protected String processedText;
 
@@ -117,6 +118,34 @@ public class Tweet {
             text += " " + term + "\n";
         }
         return text;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public String getProcessedText() {
+        return processedText;
+    }
+
+    public List<String> getUsers() {
+        return users;
+    }
+
+    public List<String> getHashtags() {
+        return hashtags;
+    }
+
+    public List<String> getCashtags() {
+        return cashtags;
+    }
+
+    public List<String> getTerms() {
+        return terms;
     }
 
 }
