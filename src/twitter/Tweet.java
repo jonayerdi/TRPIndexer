@@ -11,7 +11,7 @@ import java.util.*;
 public class Tweet {
 
     public static final String[] TO_REMOVE_FROM_TERMS
-            = {".",":",",",";","?","!","&","'","\"","(",")"};
+            = {".",":",",",";","\n","\r","?","!","&","'","\"","(",")"};
 
     protected Extractor extractor;
     protected Autolink autolink;
